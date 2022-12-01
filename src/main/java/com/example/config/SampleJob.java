@@ -45,7 +45,7 @@ public class SampleJob {
     @Autowired
     private FirstItemWriter firstItemWriter;
 
-    //@Bean
+    @Bean
     public Job firstJob() {
         return jobBuilderFactory.get("First Job")
                 .incrementer(new RunIdIncrementer())
@@ -94,7 +94,7 @@ public class SampleJob {
         return jobBuilderFactory.get("Second Job")
                 .incrementer(new RunIdIncrementer())
                 .start(firstChunkStep())
-                .next(secondStep())
+//                .next(secondStep())
                 .build();
     }
 
